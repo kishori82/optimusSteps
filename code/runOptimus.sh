@@ -16,37 +16,37 @@ echo $r2_fastq
 echo $i1_fastq
 
 echo "1. FastqtoBam"
-code/FastqToBam_1.sh ${output}  ${r2_fastq} 2> /dev/null
+time code/FastqToBam_1.sh ${output}  ${r2_fastq} 2> /dev/null
 
 echo "2. AttachBarcodes"
-code/AttachBarcodes_2.sh ${output} ${r1_fastq} ${i1_fastq} 2> /dev/null
+time code/AttachBarcodes_2.sh ${output} ${r1_fastq} ${i1_fastq} 2> /dev/null
 
 echo "3. MergeSortBamFiles"
-code/MergeSortBamFiles_3.sh ${output} 2> /dev/null
+time code/MergeSortBamFiles_3.sh ${output} 2> /dev/null
 
 echo "4. SplitBamByCellBarcode"
-code/SplitBamByCellBarcode_4.sh ${output} 2> /dev/null
+time code/SplitBamByCellBarcode_4.sh ${output} 2> /dev/null
 
 echo "5. StarAlignedBamSingleEnd"
-code/StarAlignedBamSingleEnd_5.sh ${output} 2> /dev/null
+time code/StarAlignedBamSingleEnd_5.sh ${output} 2> /dev/null
  
 echo "6. TagGenes"
-code/TagGenes_6.sh ${output} 2> /dev/null
+time code/TagGenes_6.sh ${output} 2> /dev/null
  
 echo "7. SortAndCorrectUmiMarkDuplicates"
-code/SortAndCorrectUmiMarkDuplicates_7.sh ${output} 2> /dev/null
+time code/SortAndCorrectUmiMarkDuplicates_7.sh ${output} 2> /dev/null
  
 echo "8. GeneSortBam"
-code/GeneSortBam_8.sh ${output} 2> /dev/null
+time code/GeneSortBam_8.sh ${output} 2> /dev/null
  
 echo "9. CellSortBam"
-code/CellSortBam_9.sh ${output} 2> /dev/null
+time code/CellSortBam_9.sh ${output} 2> /dev/null
  
 echo "10. CalculateGeneMetrics"
-code/CalculateGeneMetrics_10.sh ${output} 2> /dev/null
+time code/CalculateGeneMetrics_10.sh ${output} 2> /dev/null
  
 echo "11. CalculateCellMetrics"
-code/CalculateCellMetrics_11.sh ${output} 2> /dev/null
+time code/CalculateCellMetrics_11.sh ${output} 2> /dev/null
  
 echo "12. CreateSparseCountMatrix"
-code/CreateSparseCountMatrix_12.sh ${output} 2> /dev/null
+time code/CreateSparseCountMatrix_12.sh ${output} 2> /dev/null
