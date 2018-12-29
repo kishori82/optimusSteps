@@ -1,5 +1,5 @@
 output=$1
-bam_input=output/bam_with_gene_exon.bam
+bam_input=${output}/bam_with_gene_exon.bam
 machine_mem_mb=7500
 # give the command 500MB of overhead
 command_mem_mb=$(( ${machine_mem_mb}-500 ))

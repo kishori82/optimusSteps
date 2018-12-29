@@ -1,10 +1,16 @@
+#!/bin/bash
+
 output=$1
-bam_inputs=${output}/subfile_*
+echo "output "${output}
+echo "bam inputs" ${bam_inputs[@]}
+
+bam_inputs=`ls ${output}/subfile_*`
 genome_reference=/mnt/data2/reference/2.2.0/GRCh38/star
 cpu=1
 
+echo "bam inputs" ${bam_inputs[@]}
+
 for bam_input in ${bam_inputs[@]}; do 
-# prepare reference
 STAR \
       --runMode alignReads \
       --runThreadN ${cpu} \
