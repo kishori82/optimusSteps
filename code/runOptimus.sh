@@ -27,26 +27,40 @@ echo "3. MergeSortBamFiles"
 echo "4. SplitBamByCellBarcode"
 /usr/bin/time -v code/SplitBamByCellBarcode_4.sh ${output} > /dev/null
 
+#=============== SPLIT
 echo "5. StarAlignedBamSingleEnd"
-/usr/bin/time -v code/StarAlignedBamSingleEnd_5.sh ${output} > /dev/null
+code/StarAlignedBamSingleEnd_5.sh ${output} > /dev/null
  
 echo "6. TagGenes"
-/usr/bin/time -v code/TagGenes_6.sh ${output} > /dev/null
+code/TagGenes_6.sh ${output} > /dev/null
  
 echo "7. SortAndCorrectUmiMarkDuplicates"
-/usr/bin/time -v code/SortAndCorrectUmiMarkDuplicates_7.sh ${output} > /dev/null
+code/SortAndCorrectUmiMarkDuplicates_7.sh ${output} > /dev/null
  
 echo "8. GeneSortBam"
-/usr/bin/time -v code/GeneSortBam_8.sh ${output} > /dev/null
+code/GeneSortBam_8.sh ${output} > /dev/null
  
 echo "9. CellSortBam"
-/usr/bin/time -v code/CellSortBam_9.sh ${output} > /dev/null
+code/CellSortBam_9.sh ${output} > /dev/null
  
 echo "10. CalculateGeneMetrics"
-/usr/bin/time -v code/CalculateGeneMetrics_10.sh ${output} > /dev/null
+code/CalculateGeneMetrics_10.sh ${output} > /dev/null
  
 echo "11. CalculateCellMetrics"
-/usr/bin/time -v code/CalculateCellMetrics_11.sh ${output} > /dev/null
+code/CalculateCellMetrics_11.sh ${output} > /dev/null
  
 echo "12. CreateSparseCountMatrix"
-/usr/bin/time -v code/CreateSparseCountMatrix_12.sh ${output} > /dev/null
+code/CreateSparseCountMatrix_12.sh ${output} > /dev/null
+
+#=============== MERGE
+echo "13. MergeSortedBamFiles"
+/usr/bin/time -v code/MergeSortedBamFiles_13.sh ${output} > /dev/null
+
+echo "14. MergeGeneMetrics"
+/usr/bin/time -v code/MergeGeneMetrics_14.sh ${output} > /dev/null
+
+echo "15. MergeCellMetrics"
+/usr/bin/time -v code/MergeCellMetrics_15.sh ${output} > /dev/null
+
+echo "16. MergeCountFiles"
+/usr/bin/time -v code/MergeCountFiles_16.sh ${output} > /dev/null
